@@ -29,3 +29,10 @@ h2 {
     text-align:center;
     
 }
+.container {
+    margin:auto;
+    text-align:center;
+}
+.name, .description, .url,.price {
+    text-align: center;
+}

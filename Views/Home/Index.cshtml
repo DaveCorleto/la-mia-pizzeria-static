@@ -1,14 +1,32 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    Layout = null;
+
+    List<Pizza> pizze = new List<Pizza>();
+
+    Pizza margherita = new Pizza("Margherita", "Pomodoro e Mozzarella", "img/pizza-1.jpg", 5.90f);
+    pizze.Add(margherita);
+
+    Pizza capricciosa = new Pizza("Capricciosa", "Pomodoro, Mozzarella, funghi e carciofini", "img/pizza-2.jpg", 7.90f);
+    pizze.Add(capricciosa);
 }
-@{ Layout = null; }
 
 <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 
-@* <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div> *@
-<div>Testo di prova</div>
 <h1>MENU</h1>
 <h2>Le Nostre Pizze</h2>
+
+<div class="container">
+    @foreach (var pizza in pizze)
+    {
+        <div class="pizza">
+            <div class="name">@pizza.Name</div>
+            <div class="description">@pizza.Description</div>
+            <div class="url">
+                <img src="@pizza.Url" alt="@pizza.Name" class="img-fluid" style="max-width: 300px;" />
+            </div>
+            <div class="price">Prezzo: @pizza.Price.ToString("C")</div>
+        </div>
+    }
+</div>
+
